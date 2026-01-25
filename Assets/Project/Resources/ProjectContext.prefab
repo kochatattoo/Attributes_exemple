@@ -74,3 +74,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2f6d24b6b538a4f986d848111453b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BootstrapInstaller
+  _coroutineRunner: {fileID: 8537565818790431268, guid: 28483f804f0772d42a5d13555e69ac41, type: 3}
