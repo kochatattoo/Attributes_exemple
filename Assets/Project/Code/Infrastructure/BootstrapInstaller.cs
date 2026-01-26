@@ -4,7 +4,8 @@ using Code.Infrastructure.Services;
 using Code.Infrastructure.State;
 using Code.Infrastructure.State.States;
 using Code.Infrastructure.Utils;
-using System;
+using Code.UI.Services;
+using Code.UI.Services.Factory;
 using UnityEngine;
 using Zenject;
 
@@ -61,7 +62,14 @@ namespace Code.Infrastructure
         {
             BindAssetProvider();
             BindStaticDataService();
+            BindWindowService();
+            BindUIFactory();
         }
+
+        private void BindAssetProvider() =>
+            Container.BindInterfacesTo<AssetProvider>()
+                .AsSingle()
+                .NonLazy();
 
         private void BindStaticDataService() =>
             Container.Bind<IStaticDataService>()
@@ -69,10 +77,16 @@ namespace Code.Infrastructure
                 .AsSingle()
                 .NonLazy();
 
-        private void BindAssetProvider() =>
-            Container.BindInterfacesTo<AssetProvider>()
-                .AsSingle()
-                .NonLazy();
+        private void BindWindowService() =>
+            Container.BindInterfacesTo<WindowService>()
+               .AsSingle()
+               .NonLazy();
+
+        private void BindUIFactory()=>
+           Container.Bind<IUIFactory>()
+                     .To<UIFactory>()
+                     .AsSingle()
+                     .NonLazy();
 
         private void BindStates()
         {
