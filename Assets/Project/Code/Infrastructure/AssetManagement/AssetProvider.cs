@@ -1,50 +1,47 @@
-﻿using System.Threading.Tasks;
-using UnityEngine.AddressableAssets;
+﻿using UnityEngine.AddressableAssets;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Zenject;
+using Cysharp.Threading.Tasks;
+using System.Threading;
+using System;
 
 namespace Code.Infrastructure.AssetManagement
 {
-    public class AssetProvider : IAsset, IInitializable
+    public class AssetProvider : IAsset, IInitializable, IDisposable
     {
         private readonly Dictionary<string, AsyncOperationHandle> _completedCache = new Dictionary<string, AsyncOperationHandle>();
         private readonly Dictionary<string, List<AsyncOperationHandle>> _handles = new Dictionary<string, List<AsyncOperationHandle>>();
+
+        private readonly CancellationTokenSource _providerCancellationToken = new CancellationTokenSource();
 
         public void Initialize()
         {
             Addressables.InitializeAsync();
         }
 
-        public async Task<T> Load<T>(AssetReference assetReference) where T : class
+        public void CancelAll()
         {
-            if (_completedCache.TryGetValue(assetReference.AssetGUID, out AsyncOperationHandle completeHanlde))
-                return completeHanlde.Result as T;
-
-            return await RunWithCacheOnComplete(
-                Addressables.LoadAssetAsync<T>(assetReference),
-                cachKey: assetReference.AssetGUID);
+            _providerCancellationToken.Cancel();
         }
 
-        public async Task<T> Load<T>(string address) where T : class
-        {
-            if (_completedCache.TryGetValue(address, out AsyncOperationHandle completeHanlde))
-                return completeHanlde.Result as T;
+        public async UniTask<T> Load<T>(AssetReference assetReference, CancellationToken ct = default)
+            where T : class => 
+            await LoadInternal(Addressables.LoadAssetAsync<T>(assetReference), assetReference.AssetGUID,ct);
 
-            return await RunWithCacheOnComplete(
-                Addressables.LoadAssetAsync<T>(address),
-                cachKey: address);
-        }
+        public async UniTask<T> Load<T>(string address, CancellationToken ct = default)
+            where T : class => 
+            await LoadInternal(Addressables.LoadAssetAsync<T>(address), address, ct);
 
-        public Task<GameObject> Instantiate(string address) =>
-            Addressables.InstantiateAsync(address).Task;
+        public UniTask<GameObject> InstantiateAsync(string address, CancellationToken ct = default) =>
+            InstInternal(Addressables.InstantiateAsync(address), address, ct);
 
-        public Task<GameObject> Instantiate(string address, Vector3 at) =>
-            Addressables.InstantiateAsync(address, at, Quaternion.identity).Task;
+        public UniTask<GameObject> InstantiateAsync(string address, Vector3 at, CancellationToken ct = default) =>
+            InstInternal(Addressables.InstantiateAsync(address, at, Quaternion.identity), address, ct);
 
-        public Task<GameObject> Instantiate(string address, Transform parent) =>
-            Addressables.InstantiateAsync(address, parent).Task;
+        public UniTask<GameObject> InstantiateAsync(string address, Transform parent, CancellationToken ct = default) =>
+            InstInternal( Addressables.InstantiateAsync(address, parent), address, ct);
 
         public void CleanUp()
         {
@@ -54,18 +51,70 @@ namespace Code.Infrastructure.AssetManagement
 
             _completedCache.Clear();
             _handles.Clear();
+            _providerCancellationToken.Cancel();
         }
 
-        private async Task<T> RunWithCacheOnComplete<T>(AsyncOperationHandle<T> handle, string cachKey) where T : class
+        public void Dispose()
         {
-            handle.Completed += completeHandle =>
+            CleanUp();
+            _providerCancellationToken.Dispose();
+        }
+
+        private async UniTask<T> LoadInternal<T>(AsyncOperationHandle<T> handle, string key, CancellationToken ct) 
+            where T : class
+        {
+            // если уже загружено — вернём из кеша
+            if (_completedCache.TryGetValue(key, out var cached))
+                return cached.Result as T;
+
+            // привяжем внешний токен + токен провайдера
+            using CancellationTokenSource linkedCts = CancellationTokenSource.CreateLinkedTokenSource(ct, _providerCancellationToken.Token);
+            CancellationToken token = linkedCts.Token;
+
+            AddHandle(key, handle);
+            try
             {
-                _completedCache[cachKey] = completeHandle;
-            };
+                // ждём завершения или отмены
+                var result = await handle
+                    .ToUniTask(cancellationToken: token);
 
-            AddHandle(cachKey, handle);
+                // запомним в кеш
+                _completedCache[key] = handle;
+                return result;
+            }
+            catch (OperationCanceledException)
+            {
+                // при отмене надо отпустить ручку
+                Addressables.Release(handle);
+                throw;
+            }
+            finally
+            {
+                RemoveHandle(key, handle);
+            }
+        }
 
-            return await handle.Task;
+        private async UniTask<GameObject> InstInternal(AsyncOperationHandle<GameObject> handle, string key, CancellationToken ct)
+        {
+            using CancellationTokenSource linkedCts = CancellationTokenSource
+                .CreateLinkedTokenSource(ct, _providerCancellationToken.Token);
+            CancellationToken token = linkedCts.Token;
+
+            AddHandle(key, handle);
+            try
+            {
+                GameObject go = await handle.ToUniTask(cancellationToken: token);
+                return go;
+            }
+            catch (OperationCanceledException)
+            {
+                Addressables.Release(handle);
+                throw;
+            }
+            finally
+            {
+                RemoveHandle(key, handle);
+            }
         }
 
         private void AddHandle<T>(string key, AsyncOperationHandle<T> handle) where T : class
@@ -77,6 +126,16 @@ namespace Code.Infrastructure.AssetManagement
             }
 
             resourceHandles.Add(handle);
+        }
+
+        private void RemoveHandle(string key, AsyncOperationHandle handle)
+        {
+            if (_handles.TryGetValue(key,out List<AsyncOperationHandle> resourceHandles))
+            {
+                resourceHandles.Remove(handle);
+                if (resourceHandles.Count == 0)
+                    _handles.Remove(key);
+            }
         }
     }
 }

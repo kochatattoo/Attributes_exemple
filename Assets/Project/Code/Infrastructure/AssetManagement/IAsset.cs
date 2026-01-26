@@ -1,17 +1,18 @@
-﻿using System.Threading.Tasks;
-using UnityEngine.AddressableAssets;
+﻿using UnityEngine.AddressableAssets;
 using UnityEngine;
 using Code.Infrastructure.Services;
+using Cysharp.Threading.Tasks;
+using System.Threading;
 
 namespace Code.Infrastructure.AssetManagement
 {
     public interface IAsset : IService
     {
-        Task<GameObject> Instantiate(string path);
-        Task<GameObject> Instantiate(string path, Vector3 at);
-        Task<GameObject> Instantiate(string path, Transform parent);
-        Task<T> Load<T>(AssetReference assetbReference) where T : class;
-        Task<T> Load<T>(string address) where T : class;
+        UniTask<T> Load<T>(AssetReference assetReference, CancellationToken ct = default) where T : class;
+        UniTask<T> Load<T>(string address, CancellationToken ct = default) where T : class;
+        UniTask<GameObject> InstantiateAsync(string address, CancellationToken ct = default);
+        UniTask<GameObject> InstantiateAsync(string address, Vector3 at, CancellationToken ct = default);
+        UniTask<GameObject> InstantiateAsync(string address, Transform parent, CancellationToken ct = default);
         void CleanUp();
         void Initialize();
     }
