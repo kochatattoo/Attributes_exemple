@@ -1,6 +1,8 @@
+using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.State;
 using Code.Infrastructure.State.States;
 using Code.Infrastructure.Utils;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -15,6 +17,9 @@ namespace Code.Infrastructure
             BindGameStateMachine();
             BindCoroutineRunner();
             BindSceneLoader();
+
+            BindServices();
+
             BindStates();
             BindGame();
         }
@@ -40,8 +45,18 @@ namespace Code.Infrastructure
 
         private void BindSceneLoader() => 
             Container.Bind<SceneLoader>()
-                    .AsSingle()
-                    .NonLazy();
+                .AsSingle()
+                .NonLazy();
+
+        private void BindServices()
+        {
+            BindAssetProvider();
+        }
+
+        private void BindAssetProvider() =>
+            Container.BindInterfacesTo<AssetProvider>()
+                .AsSingle()
+                .NonLazy();
 
         private void BindStates()
         {
@@ -52,7 +67,7 @@ namespace Code.Infrastructure
 
         private void BindGame() => 
             Container.BindInterfacesTo<Game>()
-            .AsSingle()
-            .NonLazy();
+                .AsSingle()
+                .NonLazy();
     }
 }

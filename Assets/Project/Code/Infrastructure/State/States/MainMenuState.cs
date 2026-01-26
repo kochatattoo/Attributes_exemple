@@ -1,4 +1,9 @@
-﻿using Code.Infrastructure.Utils;
+﻿using Code.Infrastructure.Factory;
+using Code.Infrastructure.Utils;
+using Cysharp.Threading.Tasks;
+using System;
+using System.Threading;
+using UnityEngine;
 
 namespace Code.Infrastructure.State.States
 {
@@ -7,6 +12,9 @@ namespace Code.Infrastructure.State.States
         private const string MainMenu = "MainMenu";
         private readonly IGameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
+        private readonly IMenuFactory _menuFactory;
+
+        private CancellationTokenSource _cancellationTokenSource;
 
         public MainMenuState(IGameStateMachine gameStateMachine, SceneLoader sceneLoader)
         {
@@ -16,14 +24,35 @@ namespace Code.Infrastructure.State.States
 
         public void Enter()
         {
-            _sceneLoader.Load(MainMenu, OnLoaded);
+            _cancellationTokenSource = new CancellationTokenSource();
+
+            _sceneLoader.Load(
+                MainMenu, 
+                () => OnLoadedAsync(_cancellationTokenSource.Token).Forget(), 
+                _cancellationTokenSource.Token
+            );
         }
 
-        public void Exit() {}
-
-        private void OnLoaded()
+        public void Exit()
         {
-            // Инициализация главного меню
+            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource?.Dispose();
+        }
+
+        private async UniTaskVoid OnLoadedAsync(CancellationToken token)
+        {
+            try
+            {
+                GameObject menu = await _menuFactory.CreateMenu(token);
+            }
+            catch (OperationCanceledException)
+            {
+                Debug.Log("MainMenuState: загрузка меню отменена");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"MainMenuState: ошибка при создании меню: {ex}");
+            }
         }
     }
 }
