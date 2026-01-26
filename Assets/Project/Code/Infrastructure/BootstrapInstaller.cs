@@ -1,4 +1,6 @@
 using Code.Infrastructure.AssetManagement;
+using Code.Infrastructure.Data.StaticData;
+using Code.Infrastructure.Services;
 using Code.Infrastructure.State;
 using Code.Infrastructure.State.States;
 using Code.Infrastructure.Utils;
@@ -13,7 +15,8 @@ namespace Code.Infrastructure
         [SerializeField] private CoroutineRunner _coroutineRunner;
         public override void InstallBindings()
         {
-            BindDiFactory();
+            BindServiceFactory();
+            BindStateFactory();
             BindGameStateMachine();
             BindCoroutineRunner();
             BindSceneLoader();
@@ -24,7 +27,13 @@ namespace Code.Infrastructure
             BindGame();
         }
 
-        private void BindDiFactory() => 
+        private void BindServiceFactory() =>
+            Container.Bind<IServiceFactory>()
+                .To<ServiceFactory>()
+                .AsSingle()
+                .NonLazy();
+
+        private void BindStateFactory() => 
             Container.Bind<IStateFactory>()
                 .To<StateFactory>()
                 .AsSingle()
@@ -51,7 +60,14 @@ namespace Code.Infrastructure
         private void BindServices()
         {
             BindAssetProvider();
+            BindStaticDataService();
         }
+
+        private void BindStaticDataService() =>
+            Container.Bind<IStaticDataService>()
+                .To<StaticDataService>()
+                .AsSingle()
+                .NonLazy();
 
         private void BindAssetProvider() =>
             Container.BindInterfacesTo<AssetProvider>()
