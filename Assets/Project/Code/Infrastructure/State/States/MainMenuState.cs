@@ -1,17 +1,29 @@
-﻿using System;
+﻿using Code.Infrastructure.Utils;
 
 namespace Code.Infrastructure.State.States
 {
     public class MainMenuState : IState
     {
-        public void Enter()
+        private const string MainMenu = "MainMenu";
+        private readonly IGameStateMachine _gameStateMachine;
+        private readonly SceneLoader _sceneLoader;
+
+        public MainMenuState(IGameStateMachine gameStateMachine, SceneLoader sceneLoader)
         {
-            throw new NotImplementedException();
+            _gameStateMachine = gameStateMachine;
+            _sceneLoader = sceneLoader;
         }
 
-        public void Exit()
+        public void Enter()
         {
-            throw new NotImplementedException();
+            _sceneLoader.Load(MainMenu, OnLoaded);
+        }
+
+        public void Exit() {}
+
+        private void OnLoaded()
+        {
+            // Инициализация главного меню
         }
     }
 }

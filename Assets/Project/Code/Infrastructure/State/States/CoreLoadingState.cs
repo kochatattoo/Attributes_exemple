@@ -1,17 +1,24 @@
-﻿using System;
+﻿using Code.Infrastructure.Utils;
+using System;
 
 namespace Code.Infrastructure.State.States
 {
     public class CoreLoadingState : IState
     {
-        public void Enter()
+        private readonly IGameStateMachine _gameStateMachine;
+
+        public CoreLoadingState(IGameStateMachine gameStateMachine)
         {
-            throw new NotImplementedException();
+            _gameStateMachine = gameStateMachine;
+
+            // DI сервисов загрузок данных
         }
 
-        public void Exit()
+        public void Enter()
         {
-            throw new NotImplementedException();
+            _gameStateMachine.Enter<MainMenuState>();
         }
+
+        public void Exit() { }
     }
 }

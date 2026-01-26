@@ -8,8 +8,8 @@ namespace Code.Infrastructure.State
     {
         private readonly IStateFactory _stateFactory;
 
-        private Dictionary<Type, IState> _states;
-        private IState _activeState;
+        private Dictionary<Type, IExitableState> _states;
+        private IExitableState _activeState;
 
         public GameStateMachine(IStateFactory stateFactory)
         {
@@ -18,7 +18,7 @@ namespace Code.Infrastructure.State
 
         public void CreateGameStates()
         {
-            _states = new Dictionary<Type, IState>
+            _states = new Dictionary<Type, IExitableState>
             {
                 [typeof(BootstrapState)] = _stateFactory
                 .CreateState<BootstrapState>(),
@@ -32,9 +32,16 @@ namespace Code.Infrastructure.State
         public void Enter<TState>() where TState : class, IState
         {
             IState state = ChangeState<TState>();
-            state.Enter(); // Запускаем его
+            state.Enter();
         }
-        private TState ChangeState<TState>() where TState : class, IState
+
+        public void Enter<TState, TPayload>(TPayload payload) where TState : class, IPayloadedState<TPayload>
+        {
+            TState state = ChangeState<TState>();
+            state.Enter(payload);
+        }
+
+        private TState ChangeState<TState>() where TState : class, IExitableState
         {
             _activeState?.Exit();
 
@@ -44,7 +51,7 @@ namespace Code.Infrastructure.State
             return state;
         }
 
-        private TState GetState<TState>() where TState : class, IState =>
+        private TState GetState<TState>() where TState : class, IExitableState =>
             _states[typeof(TState)] as TState;
     }
 }
