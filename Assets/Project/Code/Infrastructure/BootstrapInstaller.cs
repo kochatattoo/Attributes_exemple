@@ -1,11 +1,13 @@
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Data.StaticData;
+using Code.Infrastructure.Factory;
 using Code.Infrastructure.Services;
 using Code.Infrastructure.State;
 using Code.Infrastructure.State.States;
 using Code.Infrastructure.Utils;
 using Code.UI.Services;
 using Code.UI.Services.Factory;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -64,7 +66,14 @@ namespace Code.Infrastructure
             BindStaticDataService();
             BindWindowService();
             BindUIFactory();
+            BindMenuFactory();
         }
+
+        private void BindMenuFactory() =>
+            Container.Bind<IMenuFactory>()
+                .To<MenuFactory>()
+                .AsSingle()
+                .NonLazy();
 
         private void BindAssetProvider() =>
             Container.BindInterfacesTo<AssetProvider>()

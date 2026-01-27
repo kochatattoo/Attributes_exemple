@@ -3,6 +3,7 @@ using Code.Infrastructure.Utils;
 using Cysharp.Threading.Tasks;
 using System;
 using System.Threading;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 namespace Code.Infrastructure.State.States
@@ -16,10 +17,11 @@ namespace Code.Infrastructure.State.States
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public MainMenuState(IGameStateMachine gameStateMachine, SceneLoader sceneLoader)
+        public MainMenuState(IGameStateMachine gameStateMachine, SceneLoader sceneLoader, IMenuFactory menuFactory)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
+            _menuFactory = menuFactory;
         }
 
         public void Enter()
@@ -27,16 +29,23 @@ namespace Code.Infrastructure.State.States
             _cancellationTokenSource = new CancellationTokenSource();
 
             _sceneLoader.Load(
-                MainMenu, 
-                () => OnLoadedAsync(_cancellationTokenSource.Token).Forget(), 
+                MainMenu,
+                () => OnLoadedAsync(_cancellationTokenSource.Token).Forget(),
                 _cancellationTokenSource.Token
             );
+
+            //_sceneLoader.Load(MainMenu, OnLoadedAsync);
         }
 
         public void Exit()
         {
             _cancellationTokenSource.Cancel();
             _cancellationTokenSource?.Dispose();
+        }
+
+        private async void OnLoadedAsync()
+        {
+            await _menuFactory.CreateMenu();
         }
 
         private async UniTaskVoid OnLoadedAsync(CancellationToken token)
