@@ -75,3 +75,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BootstrapInstaller
   _coroutineRunner: {fileID: 8537565818790431268, guid: 28483f804f0772d42a5d13555e69ac41, type: 3}
+  _loadingCurtain: {fileID: 5349175720060986733, guid: 3b86ded1adf095a42b6c8eb1ab7fa1fc, type: 3}

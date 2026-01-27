@@ -16,13 +16,17 @@ namespace Code.Infrastructure
     public class BootstrapInstaller : MonoInstaller
     {
         [SerializeField] private CoroutineRunner _coroutineRunner;
+        [SerializeField] private LoadingCurtain _loadingCurtain;
+
         public override void InstallBindings()
         {
             BindServiceFactory();
             BindStateFactory();
             BindGameStateMachine();
+
             BindCoroutineRunner();
             BindSceneLoader();
+            BindLoadingCurtain();
 
             BindServices();
 
@@ -60,6 +64,13 @@ namespace Code.Infrastructure
                 .AsSingle()
                 .NonLazy();
 
+        private void BindLoadingCurtain() => 
+            Container
+                .Bind<LoadingCurtain>()
+                .FromComponentInNewPrefab(_loadingCurtain)
+                .AsSingle()
+                .NonLazy();
+
         private void BindServices()
         {
             BindAssetProvider();
@@ -68,12 +79,6 @@ namespace Code.Infrastructure
             BindUIFactory();
             BindMenuFactory();
         }
-
-        private void BindMenuFactory() =>
-            Container.Bind<IMenuFactory>()
-                .To<MenuFactory>()
-                .AsSingle()
-                .NonLazy();
 
         private void BindAssetProvider() =>
             Container.BindInterfacesTo<AssetProvider>()
@@ -96,6 +101,12 @@ namespace Code.Infrastructure
                      .To<UIFactory>()
                      .AsSingle()
                      .NonLazy();
+
+        private void BindMenuFactory() =>
+           Container.Bind<IMenuFactory>()
+               .To<MenuFactory>()
+               .AsSingle()
+               .NonLazy();
 
         private void BindStates()
         {

@@ -3,7 +3,6 @@ using Code.Infrastructure.Utils;
 using Cysharp.Threading.Tasks;
 using System;
 using System.Threading;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 namespace Code.Infrastructure.State.States
@@ -11,17 +10,22 @@ namespace Code.Infrastructure.State.States
     public class MainMenuState : IState
     {
         private const string MainMenu = "MainMenu";
-        private readonly IGameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
+        private readonly LoadingCurtain _loadingCurtain;
+        private readonly IGameStateMachine _gameStateMachine;
         private readonly IMenuFactory _menuFactory;
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public MainMenuState(IGameStateMachine gameStateMachine, SceneLoader sceneLoader, IMenuFactory menuFactory)
+        public MainMenuState(IGameStateMachine gameStateMachine, 
+            SceneLoader sceneLoader, 
+            IMenuFactory menuFactory, 
+            LoadingCurtain loadingCurtain)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _menuFactory = menuFactory;
+            _loadingCurtain = loadingCurtain;
         }
 
         public void Enter()
@@ -33,19 +37,12 @@ namespace Code.Infrastructure.State.States
                 () => OnLoadedAsync(_cancellationTokenSource.Token).Forget(),
                 _cancellationTokenSource.Token
             );
-
-            //_sceneLoader.Load(MainMenu, OnLoadedAsync);
         }
 
         public void Exit()
         {
             _cancellationTokenSource.Cancel();
             _cancellationTokenSource?.Dispose();
-        }
-
-        private async void OnLoadedAsync()
-        {
-            await _menuFactory.CreateMenu();
         }
 
         private async UniTaskVoid OnLoadedAsync(CancellationToken token)
@@ -62,6 +59,8 @@ namespace Code.Infrastructure.State.States
             {
                 Debug.LogError($"MainMenuState: ошибка при создании меню: {ex}");
             }
+
+            _loadingCurtain.Hide();
         }
     }
 }
