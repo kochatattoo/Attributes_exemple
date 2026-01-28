@@ -18,6 +18,7 @@ namespace Code.Infrastructure.Data.StaticData
                 .Load<WindowStaticData>(StaticDataWindowsPath)
                 .Configs
                 .ToDictionary(x => x.WindowId, x => x);
+
         }
 
         public WindowConfig ForWindow(WindowID windowId) =>

@@ -4,9 +4,9 @@ namespace Code.Infrastructure.Utils
 {
     public class CoroutineRunner : MonoBehaviour, ICoroutineRunner
     {
-        void Awake()
-        {
-            DontDestroyOnLoad(this);
-        }
+        //void Awake()
+        //{
+        //    DontDestroyOnLoad(this);
+        //}
     }
 }

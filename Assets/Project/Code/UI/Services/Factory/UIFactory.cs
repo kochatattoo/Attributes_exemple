@@ -30,12 +30,13 @@ namespace Code.UI.Services.Factory
             
         }
 
-        public async UniTask CreateUIRoot(CancellationToken ct = default)
+        public async UniTask<GameObject> CreateUIRoot(CancellationToken ct = default)
         {
-            GameObject pref = await _asset.Load<GameObject>(AssetAddress.UIRoot, ct);
+            GameObject pref = await _asset.LoadAsync<GameObject>(AssetAddress.UIRoot, ct);
             _uiRoot = Object.Instantiate(pref).transform;
 
             GameObject.DontDestroyOnLoad(_uiRoot);
+            return pref;
         }
 
         private T CreateWindow<T>(WindowID ind) where T : WindowBase

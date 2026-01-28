@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Code.Infrastructure.Utils
@@ -12,10 +7,10 @@ namespace Code.Infrastructure.Utils
     {
         [SerializeField] private CanvasGroup Curtain;
 
-        private void Awake()
-        {
-            DontDestroyOnLoad(this);
-        }
+        //private void Awake()
+        //{
+        //    DontDestroyOnLoad(this);
+        //}
 
         public void Show()
         {

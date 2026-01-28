@@ -16,6 +16,12 @@ namespace Code.Infrastructure.AssetManagement
 
         private readonly CancellationTokenSource _providerCancellationToken = new CancellationTokenSource();
 
+        public void Dispose()
+        {
+            CleanUp();
+            _providerCancellationToken.Dispose();
+        }
+
         public void Initialize()
         {
             Addressables.InitializeAsync();
@@ -26,11 +32,11 @@ namespace Code.Infrastructure.AssetManagement
             _providerCancellationToken.Cancel();
         }
 
-        public async UniTask<T> Load<T>(AssetReference assetReference, CancellationToken ct = default)
+        public async UniTask<T> LoadAsync<T>(AssetReference assetReference, CancellationToken ct = default)
             where T : class => 
             await LoadInternal(Addressables.LoadAssetAsync<T>(assetReference), assetReference.AssetGUID,ct);
 
-        public async UniTask<T> Load<T>(string address, CancellationToken ct = default)
+        public async UniTask<T> LoadAsync<T>(string address, CancellationToken ct = default)
             where T : class => 
             await LoadInternal(Addressables.LoadAssetAsync<T>(address), address, ct);
 
@@ -54,10 +60,9 @@ namespace Code.Infrastructure.AssetManagement
             _providerCancellationToken.Cancel();
         }
 
-        public void Dispose()
+        public void Release(UnityEngine.Object obj)
         {
-            CleanUp();
-            _providerCancellationToken.Dispose();
+            Addressables.Release(obj);
         }
 
         private async UniTask<T> LoadInternal<T>(AsyncOperationHandle<T> handle, string key, CancellationToken ct) 

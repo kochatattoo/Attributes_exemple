@@ -26,6 +26,12 @@ namespace Code.UI.Services
             {
                 case WindowID.Unknow:
                     break;
+                case WindowID.NewGame:
+                    _uiFactory.CreateNewGame();
+                    break;
+                case WindowID.Exit:
+                    _uiFactory.CreateExit();
+                    break;
                 case WindowID.Shop:
                     break;
                 case WindowID.Option:

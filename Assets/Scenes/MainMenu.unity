@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 293941713}
   - component: {fileID: 293941712}
+  - component: {fileID: 293941714}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -149,7 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Zenject::Zenject.SceneContext
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 293941714}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -182,6 +184,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &293941714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293941711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dcb0f41c2a83b74296c45c0d5afc726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.Infrastructure.MainMenuInstaller
 --- !u!1 &468186227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1865214505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1110,7 +1124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4224871959033620105, guid: e9c5817cf1b2f654b8122958eb8967df, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6234290241024940819, guid: e9c5817cf1b2f654b8122958eb8967df, type: 3}
       propertyPath: m_Pivot.x

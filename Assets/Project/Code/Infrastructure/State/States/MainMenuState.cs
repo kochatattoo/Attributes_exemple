@@ -1,5 +1,6 @@
 ﻿using Code.Infrastructure.Factory;
 using Code.Infrastructure.Utils;
+using Code.UI.Services.Factory;
 using Cysharp.Threading.Tasks;
 using System;
 using System.Threading;
@@ -14,18 +15,21 @@ namespace Code.Infrastructure.State.States
         private readonly LoadingCurtain _loadingCurtain;
         private readonly IGameStateMachine _gameStateMachine;
         private readonly IMenuFactory _menuFactory;
+        private readonly IUIFactory _uiFactory;
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public MainMenuState(IGameStateMachine gameStateMachine, 
-            SceneLoader sceneLoader, 
-            IMenuFactory menuFactory, 
-            LoadingCurtain loadingCurtain)
+        public MainMenuState(IGameStateMachine gameStateMachine,
+            SceneLoader sceneLoader,
+            IMenuFactory menuFactory,
+            LoadingCurtain loadingCurtain,
+            IUIFactory uiFactory)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _menuFactory = menuFactory;
             _loadingCurtain = loadingCurtain;
+            _uiFactory = uiFactory;
         }
 
         public void Enter()
@@ -49,7 +53,7 @@ namespace Code.Infrastructure.State.States
         {
             try
             {
-                GameObject menu = await _menuFactory.CreateMenu(token);
+               await UniTask.WhenAll(_menuFactory.CreateMenu(token), _uiFactory.CreateUIRoot(token));
             }
             catch (OperationCanceledException)
             {
