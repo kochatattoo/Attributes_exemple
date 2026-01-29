@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UniRx;
+using Attribute = Code.Hero.Attributes.Attribute;
 
 namespace Code.Hero.Data
 {
@@ -34,9 +35,19 @@ namespace Code.Hero.Data
             }
             Attributes = new HeroAttributes(dict);
         }
+
         public void Dispose()
         {
             _disposables.Dispose();
+        }
+
+        public void ResetAllAttributes()
+        {
+            foreach (var attr in Attributes.AllAttributes) // AllAttributes — список всех Attribute в классе
+            {
+                Attribute attribute = Attributes.AllAttributes[attr.Key];
+                attribute.ResetModifiers();
+            }
         }
     }
 }

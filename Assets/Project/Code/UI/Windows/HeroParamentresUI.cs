@@ -17,39 +17,28 @@ namespace Code.UI.MainMenuElements
         [SerializeField] private TextMeshProUGUI _evesion;
         [SerializeField] private TextMeshProUGUI _resistance;
 
-        private CompositeDisposable _classSubscribers = new();
+        private CompositeDisposable _heroSubscribers = new();
 
-        public void Construct(HeroData heroData)
+        public void Construct(HeroData heroData, CompositeDisposable windowLifetime)
         {
             heroData.SelectedClass
                 .Subscribe(hc =>
                 {
-                    _classSubscribers.Clear(); // Отписываемся от статов старого героя
+                    _heroSubscribers.Clear();
                     if (hc == null) return;
 
-                    // Подписываемся на каждое изменение нужных атрибутов
-                    // Теперь при нажатии "+" в распределении очков, этот код сработает мгновенно
-
-                    BindParam(hc, AttributeConstants.STM, val => _health.text = $"Здоровье: {val * 10}");
-                    BindParam(hc, AttributeConstants.INT, val => _mana.text = $"Мана: {val * 5}");
-                    BindParam(hc, AttributeConstants.STR, val => _attack.text = $"Атака: {val * 2}");
-                    BindParam(hc, AttributeConstants.AGI, val => _defence.text = $"Защита: {val * 2}");
-                    BindParam(hc, AttributeConstants.WIS, val => _evesion.text = $"Уклонение: {val * 2}");
-                    BindParam(hc, AttributeConstants.STM, val => _resistance.text = $"Сопротивление: {val * 2}");
-                    // STM используется дважды, это нормально — обе подписки будут работать
+                    // Подписываемся на "живые" изменения статов героя
+                    Bind(hc, AttributeConstants.STM, val => _health.text = $"HP: {val * 10}");
+                    Bind(hc, AttributeConstants.INT, val => _mana.text = $"MP: {val * 5}");
+                    Bind(hc, AttributeConstants.STR, val => _attack.text = $"ATK: {val * 2}");
+                    Bind(hc, AttributeConstants.AGI, val => _defence.text = $"DEF: {val * 2}");
                 })
-                .AddTo(this);
+                .AddTo(windowLifetime);
         }
 
-        private void BindParam(HeroClass hc, string attrName, System.Action<int> onUpdate)
+        private void Bind(HeroClass hc, string attr, System.Action<int> action)
         {
-            var attr = hc.Attributes[attrName];
-            if (attr != null)
-            {
-                attr.Subscribe(onUpdate).AddTo(_classSubscribers);
-            }
+            hc.Attributes[attr].Subscribe(action).AddTo(_heroSubscribers);
         }
-
-        private void OnDestroy() => _classSubscribers.Dispose();
     }
 }

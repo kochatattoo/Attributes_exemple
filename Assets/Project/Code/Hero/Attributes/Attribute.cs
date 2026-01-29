@@ -43,6 +43,12 @@ namespace Code.Hero.Attributes
             Recalculate();
         }
 
+        public void ResetModifiers()
+        {
+            _modifiers.Clear(); // Удаляем все бонусы
+            Recalculate();
+        }
+
         private void Recalculate()
         {
             _finalValue.Value = RecalculateFinalValue(_baseValue, _modifiers);

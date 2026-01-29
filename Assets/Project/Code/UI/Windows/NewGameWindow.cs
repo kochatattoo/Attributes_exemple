@@ -27,8 +27,7 @@ namespace Code.UI.Windows
 
             heroClassContainerUI.Construct(_heroData, asset);
             heroClassDescriptionUI.Construct(_heroData);
-            heroAttributesView.Construct(_heroData, _disposables);
-            heroParamentresUI.Construct(_heroData);
+            heroAttributesView.Construct(heroParamentresUI, _heroData, _disposables);
         }
 
         private void OnDestroy() => _disposables.Dispose();

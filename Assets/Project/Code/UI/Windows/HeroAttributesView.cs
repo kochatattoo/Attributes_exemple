@@ -14,42 +14,56 @@ namespace Code.UI.MainMenuElements
         // Пусть отслеживает через поток
         [SerializeField] private DistributePoints[] _statRows;
         [SerializeField] private TextMeshProUGUI _globalPointsText;
-        [SerializeField] private Button _confirmButton;
 
-        public void Construct(HeroData heroData, CompositeDisposable windowLifetime)
+        private HeroParamentresUI _paramsUI;
+        private HeroClass _lastSelectedHero; // Запоминаем, кто был выбран до этого
+        private int _initialBonusPoints = 10; // Сколько очков было изначально
+
+        public void Construct(HeroParamentresUI paramsUI, HeroData heroData, CompositeDisposable windowLifetime)
         {
-            // Следим за тем, какой герой выбран
-            heroData.SelectedClass
-                .Where(hero => hero != null)
-                .Subscribe(hero => {
-                    foreach (var row in _statRows)
-                        row.Bind(hero, heroData.BonusPoints, windowLifetime);
-                }).AddTo(windowLifetime);
+            _paramsUI = paramsUI;
+            _initialBonusPoints = heroData.BonusPoints.Value;
 
-            // Обновляем общий текст свободных очков
+            _paramsUI.Construct(heroData, windowLifetime);
+
+            // Следим за очками
             heroData.BonusPoints
-                .Subscribe(p => _globalPointsText.text = $"POINTS LEFT: {p}")
+                .Subscribe(p => _globalPointsText.text = $"POINTS: {p}")
                 .AddTo(windowLifetime);
 
-            // Кнопка "Окей"
-            _confirmButton.onClick.AsObservable()
-                .Subscribe(_ => ConfirmDistribution(heroData))
-                .AddTo(windowLifetime);
+            heroData.SelectedClass
+           .Subscribe(newHero =>
+           {
+               // ЛОГИКА СБРОСА ПРИ СМЕНЕ КЛАССА
+               if (_lastSelectedHero != null && _lastSelectedHero != newHero)
+               {
+                   ResetHeroProgress(_lastSelectedHero, heroData);
+               }
+
+               if (newHero == null) return;
+
+               foreach (var row in _statRows)
+                   row.Bind(newHero, heroData, windowLifetime);
+
+               _lastSelectedHero = newHero;
+           })
+           .AddTo(windowLifetime);
         }
 
-        private void ConfirmDistribution(HeroData data)
+        // Метод для возврата очков и очистки статов
+        private void ResetHeroProgress(HeroClass hero, HeroData data)
         {
-            var hero = data.SelectedClass.Value;
-            foreach (var row in _statRows)
+            hero.ResetAllAttributes(); // Убираем модификаторы
+            data.BonusPoints.Value = _initialBonusPoints; // Возвращаем очки в пул
+        }
+
+        // Вызывается при закрытии окна (через кнопку "Назад" или Close)
+        public void OnCloseWindow(HeroData data)
+        {
+            if (_lastSelectedHero != null)
             {
-                if (row.AddedPoints > 0)
-                {
-                    // Создаем модификатор и применяем его навсегда
-                    var mod = new AttributeModifier( ModifierType.Flat, row.AddedPoints);
-                    hero.Attributes.AddModifier(row.AttrName, mod);
-                }
+                ResetHeroProgress(_lastSelectedHero, data);
             }
-            Debug.Log("Points Distributed!");
         }
     }
 }

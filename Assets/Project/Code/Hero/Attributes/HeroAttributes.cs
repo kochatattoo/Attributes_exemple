@@ -12,6 +12,7 @@ namespace Code.Hero.Attributes
 
         private readonly CompositeDisposable _disposables = new();
 
+        public IReadOnlyDictionary<string, Attribute> AllAttributes => _attributes;
         public IReadOnlyReactiveProperty<int> this[string name]
         {
             get
