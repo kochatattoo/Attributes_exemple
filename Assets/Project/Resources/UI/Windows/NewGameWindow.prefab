@@ -601,6 +601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4520829309673250777}
   - component: {fileID: 438766819507417444}
+  - component: {fileID: 5944794567723027017}
   m_Layer: 5
   m_Name: Container_line_STR
   m_TagString: Untagged
@@ -639,6 +640,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207665103186837959}
   m_CullTransparentMesh: 1
+--- !u!114 &5944794567723027017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207665103186837959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f892f1d6794c33046a1af69c04b3cd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.UI.MainMenuElements.DistributePoints
+  _attrName: str
+  _increaseBtn: {fileID: 4863911091783035973}
+  _decreaseBtn: {fileID: 4318331635648275252}
+  _attributePointsText: {fileID: 4686176315601016714}
 --- !u!1 &1239054109620019996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2905,6 +2922,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da83dde298cc5184f921887e63416857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.UI.MainMenuElements.HeroAttributesView
+  _statRows:
+  - {fileID: 5944794567723027017}
+  - {fileID: 347328612208532608}
+  - {fileID: 1041340066252703522}
+  - {fileID: 6051695568644904315}
+  - {fileID: 1419419629388010523}
+  _globalPointsText: {fileID: 8238152230589340087}
+  _confirmButton: {fileID: 2541846442411128414}
 --- !u!1 &2931816498061599753
 GameObject:
   m_ObjectHideFlags: 0
@@ -3990,6 +4015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7691293923219406394}
   - component: {fileID: 6150856034445748313}
+  - component: {fileID: 1041340066252703522}
   m_Layer: 5
   m_Name: Container_line_INT
   m_TagString: Untagged
@@ -4028,6 +4054,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4393446397353633915}
   m_CullTransparentMesh: 1
+--- !u!114 &1041340066252703522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4393446397353633915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f892f1d6794c33046a1af69c04b3cd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.UI.MainMenuElements.DistributePoints
+  _attrName: inte
+  _increaseBtn: {fileID: 5766310903008843852}
+  _decreaseBtn: {fileID: 6311103339776247844}
+  _attributePointsText: {fileID: 4255252682857335556}
 --- !u!1 &4462624752862978137
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,6 +5100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4732017371095488068}
   - component: {fileID: 5359186356617297752}
+  - component: {fileID: 1419419629388010523}
   m_Layer: 5
   m_Name: Container_line_STM
   m_TagString: Untagged
@@ -5096,6 +5139,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5587147472058308619}
   m_CullTransparentMesh: 1
+--- !u!114 &1419419629388010523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5587147472058308619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f892f1d6794c33046a1af69c04b3cd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.UI.MainMenuElements.DistributePoints
+  _attrName: stm
+  _increaseBtn: {fileID: 8362307586098979577}
+  _decreaseBtn: {fileID: 5886384473724724576}
+  _attributePointsText: {fileID: 4527401511247863169}
 --- !u!1 &5620122445845115575
 GameObject:
   m_ObjectHideFlags: 0
@@ -6210,6 +6269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8705655199278236528}
   - component: {fileID: 7327097963388766301}
+  - component: {fileID: 347328612208532608}
   m_Layer: 5
   m_Name: Container_line_AGI
   m_TagString: Untagged
@@ -6248,6 +6308,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6172538831736410844}
   m_CullTransparentMesh: 1
+--- !u!114 &347328612208532608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172538831736410844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f892f1d6794c33046a1af69c04b3cd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.UI.MainMenuElements.DistributePoints
+  _attrName: agi
+  _increaseBtn: {fileID: 3652501757531143627}
+  _decreaseBtn: {fileID: 6734615969396826356}
+  _attributePointsText: {fileID: 2558486339855925928}
 --- !u!1 &6250212788474539862
 GameObject:
   m_ObjectHideFlags: 0
@@ -6975,6 +7051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 717996981815145537}
   - component: {fileID: 559679712242441024}
+  - component: {fileID: 6051695568644904315}
   m_Layer: 5
   m_Name: Container_line_WIS
   m_TagString: Untagged
@@ -7013,6 +7090,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6856252640923908394}
   m_CullTransparentMesh: 1
+--- !u!114 &6051695568644904315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6856252640923908394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f892f1d6794c33046a1af69c04b3cd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.UI.MainMenuElements.DistributePoints
+  _attrName: wis
+  _increaseBtn: {fileID: 1227922161969416583}
+  _decreaseBtn: {fileID: 5137315466914184268}
+  _attributePointsText: {fileID: 2729535639345680663}
 --- !u!1 &6993117367082139857
 GameObject:
   m_ObjectHideFlags: 0

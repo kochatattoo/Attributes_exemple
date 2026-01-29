@@ -10,6 +10,7 @@ namespace Code.Hero.Data
         public ReactiveDictionary<int, HeroClass> Classes { get; } = new ReactiveDictionary<int, HeroClass>();
         public ReactiveProperty<int> SelectedId { get; } = new ReactiveProperty<int>(-1);
         public IReadOnlyReactiveProperty<HeroClass> SelectedClass { get; }
+        public IntReactiveProperty BonusPoints { get; } = new IntReactiveProperty(10);
 
         public HeroData(IHeroDataProvider heroDataProvider)
         {
