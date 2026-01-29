@@ -1,0 +1,94 @@
+{
+  "HeroAttributes": [
+    {
+      "id"          : 1,
+      "name"        : "Barbarian",
+      "mainAttribute": "str",
+      "str"         : 14,
+      "agi"         : 10,
+      "inte"         : 10,          
+      "wis"         : 8,
+      "stm"         : 12
+    },
+    {
+      "id"          : 2,
+      "name"        : "Warrior",
+      "mainAttribute": "str",
+      "str"         : 12,
+      "agi"         : 12,
+      "inte"         : 10,          
+      "wis"         : 8,
+      "stm"         : 12
+    },
+    {
+      "id"          : 3,
+      "name"        : "Rogue",
+      "mainAttribute": "agi",
+      "str"         : 10,
+      "agi"         : 14,
+      "inte"         : 10,          
+      "wis"         : 10,
+      "stm"         : 10
+    },
+    {
+      "id"          : 4,
+      "name"        : "Ranger",
+      "mainAttribute": "agi",
+      "str"         : 8,
+      "agi"         : 14,
+      "inte"         : 10,          
+      "wis"         : 12,
+      "stm"         : 10
+    },
+    {
+      "id"          : 5,
+      "name"        : "Cleric",
+      "mainAttribute": "wis",
+      "str"         : 10,
+      "agi"         : 10,
+      "inte"         : 10,          
+      "wis"         : 14,
+      "stm"         : 10
+    },
+    {
+      "id"          : 6,
+      "name"        : "Paladin",
+      "mainAttribute": "str",
+      "str"         : 12,
+      "agi"         : 10,
+      "inte"         : 10,          
+      "wis"         : 10,
+      "stm"         : 12
+    },
+    {
+      "id"          : 7,
+      "name"        : "Druid",
+      "mainAttribute": "wis",
+      "str"         : 10,
+      "agi"         : 10,
+      "inte"         : 12,          
+      "wis"         : 12,
+      "stm"         : 10
+    },
+    {
+      "id"          : 8,
+      "name"        : "Wizard",
+      "mainAttribute": "inte",
+      "str"         : 8,
+      "agi"         : 10,
+      "inte"         : 14,          
+      "wis"         : 12,
+      "stm"         : 10
+    },
+    {
+      "id"          : 9,
+      "name"        : "Sorcerer",
+      "mainAttribute": "inte",
+      "str"         : 8,
+      "agi"         : 12,
+      "inte"         : 14,          
+      "wis"         : 10,
+      "stm"         : 10
+    }
+  ]
+}

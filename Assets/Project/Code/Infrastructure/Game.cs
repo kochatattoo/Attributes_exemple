@@ -1,16 +1,27 @@
-using UnityEngine;
+using Code.Infrastructure.State;
+using Code.Infrastructure.State.States;
+using Zenject;
 
-public class Game : MonoBehaviour
+namespace Code.Infrastructure
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class Game : IInitializable
     {
-        
-    }
+        private readonly IGameStateMachine _gameStateMachine;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Game(IGameStateMachine gameStateMachine)
+        {
+            _gameStateMachine = gameStateMachine;
+        }
+
+        public void Initialize()
+        {
+            CreateGame();
+        }
+
+        private void CreateGame()
+        {
+            _gameStateMachine.CreateGameStates();
+            _gameStateMachine.Enter<BootstrapState>();
+        }
     }
 }
