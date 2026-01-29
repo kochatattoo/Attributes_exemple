@@ -1,18 +1,38 @@
-﻿using UniRx;
+﻿using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
+using UniRx;
 
 namespace Code.Hero.Data
 {
     public class HeroData
     {
-        private readonly IHeroDataService _heroDataService;
+        private readonly IHeroDataProvider _provider;
+        public ReactiveDictionary<int, HeroClass> Classes { get; } = new ReactiveDictionary<int, HeroClass>();
+        public ReactiveProperty<int> SelectedId { get; } = new ReactiveProperty<int>(-1);
+        public IReadOnlyReactiveProperty<HeroClass> SelectedClass { get; }
 
-        public ReactiveProperty<HeroClass> HeroClass { get; } = new ReactiveProperty<HeroClass>();
-        public ReactiveProperty<int> HeroId { get; } = new ReactiveProperty<int>();
-
-        public HeroData(IHeroDataService heroDataService)
+        public HeroData(IHeroDataProvider heroDataProvider)
         {
-            _heroDataService = heroDataService;
+            _provider = heroDataProvider;
+
+            SelectedClass = SelectedId
+                .Select(id => Classes.TryGetValue(id, out var hc) ? hc : null)
+                .ToReadOnlyReactiveProperty();
+        }
+
+        public void Initialize()
+        {
+            InitializeClasses(_provider.HeroClassesReadonly);
+        }
+
+        private void InitializeClasses(IReadOnlyDictionary<int, HeroClass> source)
+        {
+            foreach (var kvp in source)
+            {
+                Classes[kvp.Key] = kvp.Value;
+            }
         }
     }
+
 }
 

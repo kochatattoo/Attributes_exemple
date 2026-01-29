@@ -1,4 +1,5 @@
-﻿using Code.Infrastructure.Factory;
+﻿using Code.Hero.Data;
+using Code.Infrastructure.Factory;
 using Code.Infrastructure.Utils;
 using Code.UI.Services.Factory;
 using Cysharp.Threading.Tasks;
@@ -16,20 +17,26 @@ namespace Code.Infrastructure.State.States
         private readonly IGameStateMachine _gameStateMachine;
         private readonly IMenuFactory _menuFactory;
         private readonly IUIFactory _uiFactory;
+        private readonly IHeroDataProvider _heroDataProvider;
 
+        private HeroData _heroData;
         private CancellationTokenSource _cancellationTokenSource;
 
         public MainMenuState(IGameStateMachine gameStateMachine,
             SceneLoader sceneLoader,
             IMenuFactory menuFactory,
             LoadingCurtain loadingCurtain,
-            IUIFactory uiFactory)
+            IUIFactory uiFactory,
+            IHeroDataProvider heroDataProvider,
+            IHeroDataService heroDataService)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _menuFactory = menuFactory;
             _loadingCurtain = loadingCurtain;
             _uiFactory = uiFactory;
+            _heroDataProvider = heroDataProvider;
+            _heroData = heroDataService.HeroData;
         }
 
         public void Enter()
@@ -53,7 +60,8 @@ namespace Code.Infrastructure.State.States
         {
             try
             {
-               await UniTask.WhenAll(_menuFactory.CreateMenu(token), _uiFactory.CreateUIRoot(token));
+                await UniTask.WhenAll(_menuFactory.CreateMenu(token),
+                                      _uiFactory.CreateUIRoot(token));
             }
             catch (OperationCanceledException)
             {

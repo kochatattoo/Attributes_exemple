@@ -1,3 +1,4 @@
+using Code.Hero.Data;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Data.StaticData;
 using Code.Infrastructure.Factory;
@@ -7,7 +8,6 @@ using Code.Infrastructure.State.States;
 using Code.Infrastructure.Utils;
 using Code.UI.Services;
 using Code.UI.Services.Factory;
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -75,6 +75,8 @@ namespace Code.Infrastructure
         {
             BindAssetProvider();
             BindStaticDataService();
+            BindHeroDataProvider();
+            BindHeroDataService();
             BindWindowService();
             BindUIFactory();
             BindMenuFactory();
@@ -88,6 +90,18 @@ namespace Code.Infrastructure
         private void BindStaticDataService() =>
             Container.Bind<IStaticDataService>()
                 .To<StaticDataService>()
+                .AsSingle()
+                .NonLazy();
+
+        private void BindHeroDataProvider() =>
+            Container.Bind<IHeroDataProvider>()
+                .To<HeroDataProvider>()
+                .AsSingle()
+                .NonLazy();
+
+        private void BindHeroDataService() =>
+             Container.Bind<IHeroDataService>()
+                .To<HeroDataService>()
                 .AsSingle()
                 .NonLazy();
 

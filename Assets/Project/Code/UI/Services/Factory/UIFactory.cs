@@ -1,4 +1,5 @@
-﻿using Code.Infrastructure.AssetManagement;
+﻿using Code.Hero.Data;
+using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Data.StaticData;
 using Code.Infrastructure.Data.StaticData.Window;
 using Code.UI.Windows;
@@ -11,13 +12,15 @@ namespace Code.UI.Services.Factory
     public class UIFactory : IUIFactory
     {
         private readonly IAsset _asset;
+        private readonly IHeroDataProvider _heroDataProvider;
         private readonly IStaticDataService _staticData;
         private Transform _uiRoot;
 
-        public UIFactory(IAsset asset, IStaticDataService staticData)
+        public UIFactory(IAsset asset, IStaticDataService staticData, IHeroDataProvider heroDataProvider)
         {
             _asset = asset;
             _staticData = staticData;
+            _heroDataProvider = heroDataProvider;
         }
 
         public void CreateExit()
@@ -27,7 +30,8 @@ namespace Code.UI.Services.Factory
 
         public void CreateNewGame()
         {
-            
+            NewGameWindow newGameWindow = CreateWindow<NewGameWindow>(WindowID.NewGame);
+            newGameWindow.Construct(_heroDataProvider, _asset);
         }
 
         public async UniTask<GameObject> CreateUIRoot(CancellationToken ct = default)

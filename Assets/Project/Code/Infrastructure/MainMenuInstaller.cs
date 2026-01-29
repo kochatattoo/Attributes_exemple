@@ -1,5 +1,4 @@
 ﻿using Code.Hero.Data;
-using System;
 using Zenject;
 
 namespace Code.Infrastructure
@@ -12,7 +11,7 @@ namespace Code.Infrastructure
         }
 
         private void BindHeroDataService() =>
-            Container.BindInterfacesTo<HeroDataService>()
+            Container.BindInterfacesTo<HeroDataProvider>()
                 .AsSingle()
                 .NonLazy();
     }
