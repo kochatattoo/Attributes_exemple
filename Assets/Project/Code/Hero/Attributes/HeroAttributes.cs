@@ -8,17 +8,15 @@ namespace Code.Hero.Attributes
     public class HeroAttributes: IDisposable
     {
         private readonly Dictionary<string, Attribute> _attributes = new();
-        private readonly Dictionary<string, ReactiveProperty<int>> _reactiveValues = new();
-
-        private readonly CompositeDisposable _disposables = new();
 
         public IReadOnlyDictionary<string, Attribute> AllAttributes => _attributes;
         public IReadOnlyReactiveProperty<int> this[string name]
         {
             get
             {
-                if (_reactiveValues.TryGetValue(name, out var prop))
-                    return prop;
+                if (_attributes.TryGetValue(name, out var attr))
+                    return attr.FinalValue;
+
                 Debug.LogError($"Attribute '{name}' not found");
                 return null;
             }
@@ -28,50 +26,45 @@ namespace Code.Hero.Attributes
         {
             foreach (KeyValuePair<string, int> kvp in baseValues)
             {
-                Attribute attribute = new Attribute(kvp.Value);
-                _attributes.Add(kvp.Key, attribute);
-
-                ReactiveProperty<int> reactProperty = new ReactiveProperty<int>(attribute.FinalValue.Value);
-                _reactiveValues.Add(kvp.Key, reactProperty);
-
-                // Подписываемся на изменение FinalValue
-                attribute.FinalValue
-                    .Subscribe(newValue => reactProperty.Value = newValue)
-                    .AddTo(_disposables);
+                _attributes.Add(kvp.Key, new Attribute(kvp.Value));
             }
         }
 
         public void Dispose()
         {
-            _disposables.Dispose();
-
-            foreach (var prop in _reactiveValues.Values)
-            {
-                prop.Dispose();
-            }
-
             foreach (var attr in _attributes.Values)
-            {
                 attr.Dispose();
-            }
 
             _attributes.Clear();
-            _reactiveValues.Clear();
         }
 
+        /// <summary>
+        /// Измененение базового значения
+        /// </summary>
+        public void AddBaseValue(string name, int amount)
+        {
+            if (_attributes.TryGetValue(name, out var attr))
+                attr.AddBaseValue(amount);
+        }
+
+        /// <summary>
+        /// Работа с модификаторами, добавление
+        /// </summary>
         public void AddModifier(string attributeName, AttributeModifier modifier)
         {
             if (_attributes.TryGetValue(attributeName, out var attr))
                 attr.AddModifier(modifier); 
         }
 
+        /// <summary>
+        /// Работа с модификаторами, удаление
+        /// </summary>
         public void RemoveModifier(string attributeName, AttributeModifier modifier)
         {
             if (_attributes.TryGetValue(attributeName, out var attr))
                 attr.RemoveModifier(modifier);
         }
 
-        public int GetValue(string name) => _attributes[name].FinalValue.Value;
-  
+        public int GetValue(string name) => _attributes.TryGetValue(name, out var attr) ? attr.FinalValue.Value : 0;
     }
 }

@@ -8,7 +8,7 @@ namespace Code.Hero.Attributes
     [Serializable]
     public class Attribute: IDisposable
     {
-        [field: SerializeField] private int _baseValue;
+        [SerializeField] private int _baseValue;
         [SerializeField] private List<AttributeModifier> _modifiers = new();
 
         private readonly IntReactiveProperty _finalValue = new();
@@ -19,14 +19,27 @@ namespace Code.Hero.Attributes
         public Attribute(int baseValue)
         {
             _baseValue = baseValue;
-            _finalValue.Value = RecalculateFinalValue(_baseValue, _modifiers);
+            Recalculate();
         }
 
-        public void Dispose()
-        {
+        public void Dispose() => 
             _finalValue.Dispose();
+
+        /// <summary>
+        /// Метод для повышения базового значения атрибута (при повышении уровня/глобальное изменение)
+        /// </summary>
+        /// <param name="amount">значение</param>
+        public void AddBaseValue(int amount)
+        {
+            if (amount == 0) return;
+            _baseValue += amount;
+            Recalculate();
         }
 
+        /// <summary>
+        /// Добавить модификатор характеристики в коллекцию
+        /// </summary>
+        /// <param name="modifier">модификатор</param>
         public void AddModifier(AttributeModifier modifier)
         {
             if (_modifiers.Contains(modifier)) return;
@@ -35,14 +48,19 @@ namespace Code.Hero.Attributes
             Recalculate();
         }
 
+        /// <summary>
+        /// Убрать модификатор из коллекции
+        /// </summary>
+        /// <param name="modifier">модификатор</param>
         public void RemoveModifier(AttributeModifier modifier)
         {
-            if (!_modifiers.Contains(modifier)) return;
-            _modifiers.Remove(modifier);
-
-            Recalculate();
+            if (_modifiers.Remove(modifier))
+               Recalculate();
         }
 
+        /// <summary>
+        /// Сбросить все модификаторы, вернутся к базовому значению
+        /// </summary>
         public void ResetModifiers()
         {
             _modifiers.Clear(); // Удаляем все бонусы
@@ -59,26 +77,22 @@ namespace Code.Hero.Attributes
             float calculatedValue = baseValue;
             float finalPercentage = 1f;
 
-            foreach (AttributeModifier modifier in modifiers) //Первым делом складываем все плоские значения 
+            foreach (AttributeModifier modifier in modifiers) 
             {
                 if (modifier.Type == ModifierType.Flat)
                 {
-                    calculatedValue += modifier.Amount;
+                    calculatedValue += modifier.Amount; //Первым делом складываем все плоские значения 
                 }
-            }
-
-            foreach (AttributeModifier modifier in modifiers) // Составляем общий процент умножения характеристики
-            {
-                if (modifier.Type == ModifierType.Percantage)
+                else if (modifier.Type == ModifierType.Percantage)
                 {
-                    finalPercentage += (modifier.Amount / 100f);
+                    finalPercentage += (modifier.Amount / 100f); // Составляем общий процент умножения характеристики
                 }
             }
 
             calculatedValue = calculatedValue * finalPercentage; // Расчет final = (базовая + сумма плоских)*(сумма процентов) 
+            int result = Mathf.RoundToInt(calculatedValue); // Округляем до ближайшего int значения
 
-
-            return (int)calculatedValue; // Кастим до целочисленного значения (можно сделать метод, что бы задать логику округления характеристики)
+            return result; 
         }
     }
 }
