@@ -1,7 +1,10 @@
-﻿namespace Code.Hero.Data
+﻿using UniRx;
+
+namespace Code.Hero.Data
 {
     public interface IHeroDataService
     {
-        HeroData HeroData { get; }
+        IReadOnlyReactiveProperty<HeroData> CurrentHero { get; }
+        void SetHero(HeroData data);
     }
 }

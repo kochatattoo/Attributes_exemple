@@ -14,29 +14,22 @@ namespace Code.Infrastructure.State.States
         private const string MainMenu = "MainMenu";
         private readonly SceneLoader _sceneLoader;
         private readonly LoadingCurtain _loadingCurtain;
-        private readonly IGameStateMachine _gameStateMachine;
         private readonly IMenuFactory _menuFactory;
         private readonly IUIFactory _uiFactory;
-        private readonly IHeroDataProvider _heroDataProvider;
 
-        private HeroData _heroData;
+        private HeroDataFabric _heroData;
         private CancellationTokenSource _cancellationTokenSource;
 
-        public MainMenuState(IGameStateMachine gameStateMachine,
+        public MainMenuState(
             SceneLoader sceneLoader,
             IMenuFactory menuFactory,
             LoadingCurtain loadingCurtain,
-            IUIFactory uiFactory,
-            IHeroDataProvider heroDataProvider,
-            IHeroDataService heroDataService)
+            IUIFactory uiFactory)
         {
-            _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _menuFactory = menuFactory;
             _loadingCurtain = loadingCurtain;
             _uiFactory = uiFactory;
-            _heroDataProvider = heroDataProvider;
-            _heroData = heroDataService.HeroData;
         }
 
         public void Enter()

@@ -17,21 +17,30 @@ namespace Code.UI.MainMenuElements
         [SerializeField] private TextMeshProUGUI _evesion;
         [SerializeField] private TextMeshProUGUI _resistance;
 
-        public void Construct(HeroData heroData)
+        private readonly CompositeDisposable _heroSubscribers = new();
+
+        public void Construct(HeroDataFabric heroData, CompositeDisposable windowLifetime)
         {
             heroData.SelectedClass
                 .Subscribe(hc =>
                 {
+                    _heroSubscribers.Clear();
                     if (hc == null) return;
 
-                    _health.text = $"Здоровье :{hc.Attributes[AttributeConstants.STM].Value * 10}";
-                    _mana.text = $"Мана :{hc.Attributes[AttributeConstants.INT].Value * 5}";
-                    _attack.text = $"Атака :{hc.Attributes[AttributeConstants.STR].Value * 2}";
-                    _defence.text = $"Защита :{hc.Attributes[AttributeConstants.AGI].Value * 2}";
-                    _evesion.text = $"Уклонение :{hc.Attributes[AttributeConstants.WIS].Value * 2}";
-                    _resistance.text = $"Сопротивление :{hc.Attributes[AttributeConstants.STM].Value * 2}";
+                    // Подписываемся на "живые" изменения статов героя
+                    Bind(hc, AttributeConstants.STM, val => _health.text = $"Здоровье: {val * 10}");
+                    Bind(hc, AttributeConstants.INT, val => _mana.text = $"Мана: {val * 5}");
+                    Bind(hc, AttributeConstants.STR, val => _attack.text = $"Атака: {val * 2}");
+                    Bind(hc, AttributeConstants.AGI, val => _defence.text = $"Защита: {val * 2}");
+                    Bind(hc, AttributeConstants.WIS, val => _evesion.text = $"Уклонение: {val * 2}");
+                    Bind(hc, AttributeConstants.STM, val => _resistance.text = $"Сопротивление: {val * 2}");
                 })
-                .AddTo(this);
+                .AddTo(windowLifetime);
+        }
+
+        private void Bind(HeroClass hc, string attr, System.Action<int> action)
+        {
+            hc.Attributes[attr].Subscribe(action).AddTo(_heroSubscribers);
         }
     }
 }

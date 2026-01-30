@@ -4,14 +4,16 @@ using UniRx;
 
 namespace Code.Hero.Data
 {
-    public class HeroData
+    public class HeroDataFabric
     {
         private readonly IHeroDataProvider _provider;
         public ReactiveDictionary<int, HeroClass> Classes { get; } = new ReactiveDictionary<int, HeroClass>();
         public ReactiveProperty<int> SelectedId { get; } = new ReactiveProperty<int>(-1);
         public IReadOnlyReactiveProperty<HeroClass> SelectedClass { get; }
 
-        public HeroData(IHeroDataProvider heroDataProvider)
+        public IntReactiveProperty BonusPoints { get; } = new IntReactiveProperty(10);
+
+        public HeroDataFabric(IHeroDataProvider heroDataProvider)
         {
             _provider = heroDataProvider;
 
@@ -25,6 +27,11 @@ namespace Code.Hero.Data
             InitializeClasses(_provider.HeroClassesReadonly);
         }
 
+        public HeroData CreateHeroData()
+        {
+            return new HeroData(SelectedClass.Value);
+        }
+
         private void InitializeClasses(IReadOnlyDictionary<int, HeroClass> source)
         {
             foreach (var kvp in source)
@@ -34,5 +41,14 @@ namespace Code.Hero.Data
         }
     }
 
+    public class HeroData
+    {
+        public HeroClass Hero {  get; }
+
+        public HeroData (HeroClass heroClass)
+        {
+            Hero = heroClass;
+        }
+    }
 }
 

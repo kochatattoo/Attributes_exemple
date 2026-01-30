@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UniRx;
+using Attribute = Code.Hero.Attributes.Attribute;
 
 namespace Code.Hero.Data
 {
@@ -34,9 +35,39 @@ namespace Code.Hero.Data
             }
             Attributes = new HeroAttributes(dict);
         }
+
+        public HeroClass(int id, 
+            string name, 
+            Dictionary<string, int> finalizedStats, 
+            string color, 
+            string description, 
+            string imagePath, 
+            List<string> abilities)
+        {
+            Id = id;
+            Name = name;
+            Color = color;
+            Description = description;
+            ImagePath = imagePath;
+            Abilities = new List<string>(abilities);
+
+            // Создаем новые атрибуты, где базой будут уже увеличенные числа
+            Attributes = new HeroAttributes(finalizedStats);
+        }
+
         public void Dispose()
         {
+            Attributes?.Dispose();
             _disposables.Dispose();
+        }
+
+        public void ResetAllAttributes()
+        {
+            foreach (var attr in Attributes.AllAttributes) // AllAttributes — список всех Attribute в классе
+            {
+                Attribute attribute = Attributes.AllAttributes[attr.Key];
+                attribute.ResetModifiers();
+            }
         }
     }
 }

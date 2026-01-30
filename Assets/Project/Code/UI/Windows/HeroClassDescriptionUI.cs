@@ -12,7 +12,7 @@ namespace Code.UI.MainMenuElements
 
         [SerializeField] private TextMeshProUGUI _descriptionField;
 
-        public void Construct(HeroData heroData)
+        public void Construct(HeroDataFabric heroData)
         {
             heroData.SelectedClass
                 .Subscribe(hc => _descriptionField.text = hc?.Description ?? "")
