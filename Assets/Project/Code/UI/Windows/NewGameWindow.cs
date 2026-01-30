@@ -68,7 +68,7 @@ namespace Code.UI.Windows
                 .AddTo(_disposables);
         }
 
-        private void OnDestroy()
+        protected override void Cleanup()
         {
             // Если окно закрывается (и это не подтверждение), откатываем изменения
             if (_heroDataFabric != null && _heroDataFabric.SelectedClass.Value != null)

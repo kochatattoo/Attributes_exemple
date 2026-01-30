@@ -40,15 +40,5 @@ namespace Code.Hero.Data
             }
         }
     }
-
-    public class HeroData
-    {
-        public HeroClass Hero {  get; }
-
-        public HeroData (HeroClass heroClass)
-        {
-            Hero = heroClass;
-        }
-    }
 }
 

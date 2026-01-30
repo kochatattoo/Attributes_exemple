@@ -11,5 +11,6 @@ namespace Code.UI.Services.Factory
         UniTask<GameObject> CreateUIRoot(CancellationToken ct = default);
         void CreateNewGame();
         void CreateExit();
+        void CreateDemoMenu();
     }
 }
