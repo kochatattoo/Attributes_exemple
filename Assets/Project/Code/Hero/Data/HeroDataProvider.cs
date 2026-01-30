@@ -1,5 +1,4 @@
-﻿using Code.Hero.Attributes;
-using Code.Infrastructure.AssetManagement;
+﻿using Code.Infrastructure.AssetManagement;
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
@@ -88,8 +87,8 @@ namespace Code.Hero.Data
                 var hero = new HeroClass(dto);
                 _heroClasses.Add(hero.Id, hero);
                // Debug.Log(hero.Name);
-                Debug.Log(hero.ImagePath);
-                Debug.Log(hero.Attributes[AttributeConstants.STM]);
+                //Debug.Log(hero.ImagePath);
+                //Debug.Log(hero.Attributes[AttributeConstants.STM]);
             }
         }
     }

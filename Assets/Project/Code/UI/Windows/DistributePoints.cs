@@ -19,7 +19,7 @@ namespace Code.UI.MainMenuElements
 
         private CompositeDisposable _bindDisposables = new();
 
-        public void Bind(HeroClass hero, HeroData data, CompositeDisposable windowLifetime)
+        public void Bind(HeroClass hero, HeroDataFabric data, CompositeDisposable windowLifetime)
         {
             _bindDisposables.Clear();
 

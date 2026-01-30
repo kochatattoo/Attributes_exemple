@@ -17,9 +17,9 @@ namespace Code.UI.MainMenuElements
         [SerializeField] private TextMeshProUGUI _evesion;
         [SerializeField] private TextMeshProUGUI _resistance;
 
-        private CompositeDisposable _heroSubscribers = new();
+        private readonly CompositeDisposable _heroSubscribers = new();
 
-        public void Construct(HeroData heroData, CompositeDisposable windowLifetime)
+        public void Construct(HeroDataFabric heroData, CompositeDisposable windowLifetime)
         {
             heroData.SelectedClass
                 .Subscribe(hc =>
@@ -28,10 +28,12 @@ namespace Code.UI.MainMenuElements
                     if (hc == null) return;
 
                     // Подписываемся на "живые" изменения статов героя
-                    Bind(hc, AttributeConstants.STM, val => _health.text = $"HP: {val * 10}");
-                    Bind(hc, AttributeConstants.INT, val => _mana.text = $"MP: {val * 5}");
-                    Bind(hc, AttributeConstants.STR, val => _attack.text = $"ATK: {val * 2}");
-                    Bind(hc, AttributeConstants.AGI, val => _defence.text = $"DEF: {val * 2}");
+                    Bind(hc, AttributeConstants.STM, val => _health.text = $"Здоровье: {val * 10}");
+                    Bind(hc, AttributeConstants.INT, val => _mana.text = $"Мана: {val * 5}");
+                    Bind(hc, AttributeConstants.STR, val => _attack.text = $"Атака: {val * 2}");
+                    Bind(hc, AttributeConstants.AGI, val => _defence.text = $"Защита: {val * 2}");
+                    Bind(hc, AttributeConstants.WIS, val => _evesion.text = $"Уклонение: {val * 2}");
+                    Bind(hc, AttributeConstants.STM, val => _resistance.text = $"Сопротивление: {val * 2}");
                 })
                 .AddTo(windowLifetime);
         }

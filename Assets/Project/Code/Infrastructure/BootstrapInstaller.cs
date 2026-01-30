@@ -127,6 +127,7 @@ namespace Code.Infrastructure
             Container.Bind<BootstrapState>().AsSingle().NonLazy();
             Container.Bind<CoreLoadingState>().AsSingle().NonLazy();
             Container.Bind<MainMenuState>().AsSingle().NonLazy();
+            Container.Bind<GameLoopState>().AsSingle().NonLazy();
         }
 
         private void BindGame() => 

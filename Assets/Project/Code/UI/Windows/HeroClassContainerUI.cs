@@ -20,7 +20,7 @@ namespace Code.UI.MainMenuElements
         private readonly Dictionary<int, HeroClassUI> _items = new();
         private CompositeDisposable _disposables = new();
 
-        public void Construct(HeroData heroData, IAsset asset)
+        public void Construct(HeroDataFabric heroData, IAsset asset)
         {
             foreach (var kvp in heroData.Classes)
             {
@@ -58,7 +58,7 @@ namespace Code.UI.MainMenuElements
         private void OnDestroy() => 
             _disposables.Dispose();
 
-        private void CreateUIItem(int id, HeroClass heroClass, HeroData heroData, IAsset asset)
+        private void CreateUIItem(int id, HeroClass heroClass, HeroDataFabric heroData, IAsset asset)
         {
             if (_items.ContainsKey(id)) return;
 

@@ -2,6 +2,7 @@
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Data.StaticData;
 using Code.Infrastructure.Data.StaticData.Window;
+using Code.Infrastructure.State;
 using Code.UI.Windows;
 using Cysharp.Threading.Tasks;
 using System.Threading;
@@ -11,16 +12,24 @@ namespace Code.UI.Services.Factory
 {
     public class UIFactory : IUIFactory
     {
+        private readonly IGameStateMachine _gameStateMachine;
+        private readonly IHeroDataService _heroDataService;
         private readonly IAsset _asset;
         private readonly IHeroDataProvider _heroDataProvider;
         private readonly IStaticDataService _staticData;
         private Transform _uiRoot;
 
-        public UIFactory(IAsset asset, IStaticDataService staticData, IHeroDataProvider heroDataProvider)
+        public UIFactory(IAsset asset, 
+                         IStaticDataService staticData, 
+                         IHeroDataProvider heroDataProvider, 
+                         IGameStateMachine gameStateMachine, 
+                         IHeroDataService heroDataService)
         {
             _asset = asset;
             _staticData = staticData;
             _heroDataProvider = heroDataProvider;
+            _gameStateMachine = gameStateMachine;
+            _heroDataService = heroDataService;
         }
 
         public void CreateExit()
@@ -31,7 +40,7 @@ namespace Code.UI.Services.Factory
         public void CreateNewGame()
         {
             NewGameWindow newGameWindow = CreateWindow<NewGameWindow>(WindowID.NewGame);
-            newGameWindow.Construct(_heroDataProvider, _asset);
+            newGameWindow.Construct(_heroDataProvider, _asset, _heroDataService, _gameStateMachine);
         }
 
         public async UniTask<GameObject> CreateUIRoot(CancellationToken ct = default)

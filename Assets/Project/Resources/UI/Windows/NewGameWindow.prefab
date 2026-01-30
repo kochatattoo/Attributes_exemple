@@ -276,7 +276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6791004270973179702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2165,6 +2165,7 @@ MonoBehaviour:
   heroAttributesView: {fileID: 300244689569245705}
   heroParamentresUI: {fileID: 5054067033532791766}
   _acceptButton: {fileID: 4879845349908144155}
+  _classNameField: {fileID: 6661666930896411872}
 --- !u!1 &2607600658138062742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2929,7 +2930,6 @@ MonoBehaviour:
   - {fileID: 6051695568644904315}
   - {fileID: 1419419629388010523}
   _globalPointsText: {fileID: 8238152230589340087}
-  _confirmButton: {fileID: 2541846442411128414}
 --- !u!1 &2931816498061599753
 GameObject:
   m_ObjectHideFlags: 0

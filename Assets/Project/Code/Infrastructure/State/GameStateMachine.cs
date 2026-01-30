@@ -26,6 +26,8 @@ namespace Code.Infrastructure.State
                 .CreateState<CoreLoadingState>(),
                 [typeof(MainMenuState)] = _stateFactory 
                 .CreateState<MainMenuState>(),
+                [typeof(GameLoopState)] = _stateFactory
+                .CreateState<GameLoopState>(),
             };
         }
 
