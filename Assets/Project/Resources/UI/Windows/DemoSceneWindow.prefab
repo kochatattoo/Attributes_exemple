@@ -1285,7 +1285,7 @@ MonoBehaviour:
   WeaponUI: {fileID: 2866091698695542043}
   WeaponSO: {fileID: 11400000, guid: 4e0a8eb9b0bb40941b96a373da48e724, type: 2}
   BottleUI: {fileID: 9121937270109524371}
-  BottleSO: {fileID: 11400000, guid: a3b6bea62adf1e34ca0c39b3cd79ca12, type: 2}
+  BottleSO: {fileID: 11400000, guid: 71eb9c9b4975abd48b3b37f7f897c3b5, type: 2}
 --- !u!1 &3428790294599650097
 GameObject:
   m_ObjectHideFlags: 0
