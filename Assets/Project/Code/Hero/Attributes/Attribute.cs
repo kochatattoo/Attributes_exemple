@@ -75,7 +75,8 @@ namespace Code.Hero.Attributes
         private int RecalculateFinalValue(int baseValue, List<AttributeModifier> modifiers)
         {
             float calculatedValue = baseValue;
-            float finalPercentage = 1f;
+            float additiveSum = 0f;      // Для положительных (баффы)
+            float multiplicativeProduct = 1f; // Для отрицательных (дебаффы)
 
             foreach (AttributeModifier modifier in modifiers) 
             {
@@ -85,11 +86,18 @@ namespace Code.Hero.Attributes
                 }
                 else if (modifier.Type == ModifierType.Percantage)
                 {
-                    finalPercentage += (modifier.Amount / 100f); // Составляем общий процент умножения характеристики
+                    if (modifier.Amount >=0)
+                    {
+                        additiveSum += (modifier.Amount / 100f); 
+                    }
+                    else
+                    {
+                        multiplicativeProduct *= (1f + (modifier.Amount / 100f)); 
+                    }
                 }
             }
 
-            calculatedValue = calculatedValue * finalPercentage; // Расчет final = (базовая + сумма плоских)*(сумма процентов) 
+            calculatedValue = (calculatedValue * (1f + additiveSum)) * multiplicativeProduct; // Расчет final = (базовая + сумма плоских)*(сумма процентов) 
             int result = Mathf.RoundToInt(calculatedValue); // Округляем до ближайшего int значения
 
             return result; 

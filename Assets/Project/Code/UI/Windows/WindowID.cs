@@ -8,5 +8,6 @@
         Exit,
         Option,
         Shop,
+        Demo,
     }
 }

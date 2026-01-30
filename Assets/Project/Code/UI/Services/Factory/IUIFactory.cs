@@ -1,7 +1,6 @@
 ﻿using Code.Infrastructure.Services;
 using Cysharp.Threading.Tasks;
 using System.Threading;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace Code.UI.Services.Factory
@@ -11,5 +10,6 @@ namespace Code.UI.Services.Factory
         UniTask<GameObject> CreateUIRoot(CancellationToken ct = default);
         void CreateNewGame();
         void CreateExit();
+        void CreateDemoMenu();
     }
 }

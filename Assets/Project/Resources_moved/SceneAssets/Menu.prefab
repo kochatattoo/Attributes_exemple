@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 8181467618601030531}
   - component: {fileID: 7028908256437188899}
   - component: {fileID: 3269397125346143425}
+  - component: {fileID: 1065229835039343524}
   m_Layer: 0
   m_Name: Exit_Button
   m_TagString: Untagged
@@ -857,13 +858,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6955187416661472834}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e01a8c3033540a449a061a886f538bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.UI.Elements.OpenWindowButton
   Button: {fileID: 7028908256437188899}
   WindowId: 3
+--- !u!114 &1065229835039343524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955187416661472834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66eb3cf6657f1354c9575493fafa495b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.UI.MainMenuElements.ExitButton
+  _closeButton: {fileID: 7028908256437188899}
 --- !u!1 &8319167228788484769
 GameObject:
   m_ObjectHideFlags: 0

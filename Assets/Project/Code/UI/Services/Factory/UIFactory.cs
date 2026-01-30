@@ -32,6 +32,7 @@ namespace Code.UI.Services.Factory
             _heroDataService = heroDataService;
         }
 
+
         public void CreateExit()
         {
             
@@ -41,6 +42,12 @@ namespace Code.UI.Services.Factory
         {
             NewGameWindow newGameWindow = CreateWindow<NewGameWindow>(WindowID.NewGame);
             newGameWindow.Construct(_heroDataProvider, _asset, _heroDataService, _gameStateMachine);
+        }
+
+        public void CreateDemoMenu()
+        {
+            DemoWindow demoMenuWindow = CreateWindow<DemoWindow>(WindowID.Demo);
+            demoMenuWindow.Construct(_heroDataService);
         }
 
         public async UniTask<GameObject> CreateUIRoot(CancellationToken ct = default)

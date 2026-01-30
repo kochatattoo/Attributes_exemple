@@ -36,6 +36,9 @@ namespace Code.UI.Services
                     break;
                 case WindowID.Option:
                     break;
+                case WindowID.Demo:
+                    _uiFactory.CreateDemoMenu();
+                    break;
             }
         }
     }
