@@ -70,11 +70,14 @@ namespace Code.UI.Windows
 
         protected override void Cleanup()
         {
-            // Если окно закрывается (и это не подтверждение), откатываем изменения
-            if (_heroDataFabric != null && _heroDataFabric.SelectedClass.Value != null)
+            if (_heroDataFabric != null)
             {
-                // Вызываем сброс текущего героя и возвращаем очки
-                heroAttributesView.ResetHeroProgress(_heroDataFabric.SelectedClass.Value, _heroDataFabric);
+                if (_heroDataFabric.SelectedClass.Value != null)
+                {
+                    heroAttributesView.ResetHeroProgress(_heroDataFabric.SelectedClass.Value, _heroDataFabric);
+                }
+
+                _heroDataFabric.Dispose();
             }
             _disposables.Dispose(); 
         }
@@ -106,6 +109,7 @@ namespace Code.UI.Windows
             HeroData finalData = new HeroData(finalizedHero);
             _heroDataService.SetHero(finalData);
 
+            _heroDataFabric.Dispose();
             _heroDataFabric = null;
 
             Debug.Log("Character Created! Progress Saved.");

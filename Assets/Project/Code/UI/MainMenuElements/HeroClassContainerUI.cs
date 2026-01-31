@@ -11,17 +11,20 @@ namespace Code.UI.MainMenuElements
         //Класс UI в котором находятся элементы отображения наших классов
         //Инстанируем объекты и загружаем по их данным из HeroClass иконку, имя
         //Информация о загруженных классах хранится в HeroProvider => IReadOnlyDictionary<int, HeroClass> HeroClassesReadonly
-
         //Сделать так же класс HeroClassUI, на котором есть кнопка - и при клике на объект мы его выбираем и информируем всех в потоке
+
+        private readonly Dictionary<int, HeroClassUI> _items = new();
 
         [SerializeField] private HeroClassUI _itemPrefab;
         [SerializeField] private Transform _container;
 
-        private readonly Dictionary<int, HeroClassUI> _items = new();
         private CompositeDisposable _disposables = new();
+        private int _lastSelectedId = -1;
 
         public void Construct(HeroDataFabric heroData, IAsset asset)
         {
+            _disposables.Clear();
+
             foreach (var kvp in heroData.Classes)
             {
                 CreateUIItem(kvp.Key, kvp.Value, heroData, asset);
@@ -47,12 +50,22 @@ namespace Code.UI.MainMenuElements
                 .AddTo(_disposables);
 
             heroData.SelectedId
-             .Subscribe(sel =>
-             {
-                 foreach (var kv in _items)
-                     kv.Value.SetSelected(kv.Key == sel);
-             })
-             .AddTo(_disposables);
+                .DistinctUntilChanged()
+                .Subscribe(sel =>
+                {
+                    // Снимаем выделение с предыдущего элемента
+                    if (_items.TryGetValue(_lastSelectedId, out var oldUi))
+                        oldUi.SetSelected(false);
+
+                    // Устанавливаем выделение новому
+                    if (_items.TryGetValue(sel, out var newUi))
+                        newUi.SetSelected(true);
+
+                    // Запоминаем текущий как старый для следующего раза
+                    _lastSelectedId = sel;
+
+                })
+                .AddTo(_disposables);
         }
 
         private void OnDestroy() => 
@@ -63,7 +76,9 @@ namespace Code.UI.MainMenuElements
             if (_items.ContainsKey(id)) return;
 
             var ui = Instantiate(_itemPrefab, _container);
-            ui.SetData(heroClass, id, asset, () => heroData.SelectedId.Value = id);
+
+            ui.SetData(heroClass, id, asset, () => heroData.SelectClass(id));
+
             _items[id] = ui;
 
             // Сразу проверяем, не выбран ли этот ID прямо сейчас
