@@ -17,7 +17,6 @@ namespace Code.Infrastructure.State.States
         private readonly IMenuFactory _menuFactory;
         private readonly IUIFactory _uiFactory;
 
-        private HeroDataFabric _heroData;
         private CancellationTokenSource _cancellationTokenSource;
 
         public MainMenuState(
