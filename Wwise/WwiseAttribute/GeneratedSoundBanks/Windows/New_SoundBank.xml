@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="154">
+	<SoundBanks>
+		<SoundBank Id="4072029455" Type="User" GUID="{A422EF31-FF10-4DBB-B767-FC319293F66F}" Language="SFX" Hash="{3B9C92F0-D0A3-C49C-4816-A4EA47FD108A}">
+			<ObjectPath>\SoundBanks\Default Work Unit\New_SoundBank</ObjectPath>
+			<ShortName>New_SoundBank</ShortName>
+			<Path>New_SoundBank.bnk</Path>
+			<Media>
+				<File Id="755456462" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>General RPG SFX Pack\UI SFX\Select menù voice.wav</ShortName>
+					<CachePath>72/{72802101-17A7-7EE6-BFE3-7B1B392481FB}.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="3050945240" Name="New_Event" ObjectPath="\Events\Default Work Unit\New_Event" GUID="{62B4E301-2007-4D02-B08D-D9A81FD14DFD}" DurationType="OneShot" DurationMin="1.0146667" DurationMax="1.0146667">
+					<MediaRefs>
+						<MediaRef Id="755456462"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{38D6026E-1799-D0C9-53CC-331372140626}</FileHash>
+</SoundBanksInfo>

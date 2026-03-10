@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{81893E6A-473E-4B13-9F1A-ED3FE76A73BE}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{81893E6A-473E-4B13-9F1A-ED3FE76A73BE}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="General RPG SFX Pack" ID="{FDD8632D-DBAB-41F4-9ADE-0764253D369C}" ShortID="550257181">
+					<ChildrenList>
+						<Folder Name="Doors SFX" ID="{CF7215E8-11BF-4FD7-8593-D364BAD1754F}" ShortID="1031894032">
+							<ChildrenList>
+								<Sound Name="Door Close" ID="{8C03542D-C511-4B55-9FD6-960DBB843080}" ShortID="826049621">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Door Close" ID="{0E7EE195-EDAD-4311-87E0-5915EF776227}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Doors SFX\Door Close.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="69453534"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Door Close" ID="{0E7EE195-EDAD-4311-87E0-5915EF776227}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Door Open" ID="{A8E5C42B-E455-45DA-AFD7-105FA87DB8DE}" ShortID="313035182">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Door Open" ID="{E350B515-9E4B-4A59-8918-F1DDF0CE5A59}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Doors SFX\Door Open.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="776232180"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Door Open" ID="{E350B515-9E4B-4A59-8918-F1DDF0CE5A59}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Footsteps SFX" ID="{025C1EE1-BDE3-44E2-833F-F1DB71F091A6}" ShortID="628659812">
+							<ChildrenList>
+								<Sound Name="Footsteps 1" ID="{E6F69A52-AF1E-4DE8-A418-96BEE0F439F2}" ShortID="538845796">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Footsteps 1" ID="{839868A0-EEC3-4A79-942E-580A921F8153}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Footsteps SFX\Footsteps 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="346607951"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Footsteps 1" ID="{839868A0-EEC3-4A79-942E-580A921F8153}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Footsteps 2" ID="{533ED156-59BB-40D7-8115-4952E3682278}" ShortID="519651008">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Footsteps 2" ID="{B060AECE-F702-41E7-8FF1-CEDBFACABE75}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Footsteps SFX\Footsteps 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="461372411"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Footsteps 2" ID="{B060AECE-F702-41E7-8FF1-CEDBFACABE75}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Footsteps 3" ID="{34B9FA53-B042-408D-9347-EC1EC75F6C83}" ShortID="205958810">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Footsteps 3" ID="{9B0D3D76-012C-447F-9C0B-1A492D72D5C5}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Footsteps SFX\Footsteps 3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="580353322"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Footsteps 3" ID="{9B0D3D76-012C-447F-9C0B-1A492D72D5C5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Footsteps 4" ID="{4F938CE3-7AD2-4F57-B4C8-B0DE4F774460}" ShortID="289412126">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Footsteps 4" ID="{278FA8BB-9077-423B-A02D-2BD2AB1B7EDC}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Footsteps SFX\Footsteps 4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="740295709"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Footsteps 4" ID="{278FA8BB-9077-423B-A02D-2BD2AB1B7EDC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Footsteps 5" ID="{4BCCE84D-993C-4DA2-8BED-B6DE34D213C4}" ShortID="568897487">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Footsteps 5" ID="{EABB3BA2-6B4D-41A4-B89A-49DF62CAB46F}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Footsteps SFX\Footsteps 5.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="858723390"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Footsteps 5" ID="{EABB3BA2-6B4D-41A4-B89A-49DF62CAB46F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Magic SFX" ID="{2F7F68BF-C93E-4001-B07F-7CE5F005F3BA}" ShortID="179379221">
+							<ChildrenList>
+								<Sound Name="Confusion" ID="{693FC5B1-BE45-47DE-9CDF-294D0BF6597E}" ShortID="6300774">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Confusion" ID="{7D03A21E-BB13-46D4-93DF-FA4F99E996C8}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Confusion.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="81556361"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Confusion" ID="{7D03A21E-BB13-46D4-93DF-FA4F99E996C8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Dark Magic" ID="{B96A735A-CB3C-4CD7-8DC7-3FFBB12CF946}" ShortID="28132172">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Dark Magic" ID="{C710F0B9-8706-4ACA-BFE3-D588D8272560}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Dark Magic.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="442818985"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Dark Magic" ID="{C710F0B9-8706-4ACA-BFE3-D588D8272560}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Fire Magic" ID="{3CDBA0DB-739B-4FB5-8333-F830B48CE38B}" ShortID="361864621">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Fire Magic" ID="{02339142-5A66-45B2-BA18-ED82ED153927}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Fire Magic.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="596816659"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Fire Magic" ID="{02339142-5A66-45B2-BA18-ED82ED153927}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Heal 1" ID="{B7232F24-639F-4289-BEDB-D5ADB5EF7997}" ShortID="167019883">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Heal 1" ID="{72EC4EC0-8950-4891-AF37-9A8790DE902D}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Heal 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="273158038"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Heal 1" ID="{72EC4EC0-8950-4891-AF37-9A8790DE902D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Heal 2" ID="{63813333-3458-4ABB-9E7B-CF37D1BC08E5}" ShortID="409929846">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Heal 2" ID="{0C291A56-EE59-413F-99D5-B1172C4E04B2}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Heal 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="569083307"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Heal 2" ID="{0C291A56-EE59-413F-99D5-B1172C4E04B2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Holy Magic" ID="{02BAE961-FBF3-46F1-B311-1422BAD8483F}" ShortID="358350267">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Holy Magic" ID="{D518DA75-5D01-4B25-BE80-AE03FC66D3AE}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Holy Magic.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="410995143"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Holy Magic" ID="{D518DA75-5D01-4B25-BE80-AE03FC66D3AE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Ice Magic" ID="{E8954A81-5402-40B4-B255-911246E1EAA4}" ShortID="440739297">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ice Magic" ID="{701A862E-7AB2-4342-8E7F-5E4C9C2678C2}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Ice Magic.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="165917288"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Ice Magic" ID="{701A862E-7AB2-4342-8E7F-5E4C9C2678C2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Lightning Magic" ID="{BCEBDB5F-475F-45A8-B995-66A6445DE4DF}" ShortID="62947840">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Lightning Magic" ID="{6119CC3D-FAD2-490D-B9F2-869C43F8D6EC}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Lightning Magic.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="822224271"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Lightning Magic" ID="{6119CC3D-FAD2-490D-B9F2-869C43F8D6EC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Paralyze" ID="{AB9F543A-6740-4E8F-A9D4-CB32652EF85F}" ShortID="828009981">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Paralyze" ID="{AE2B2CC3-735F-4BC6-9240-C3CE37725E7D}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Paralyze.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="274584174"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Paralyze" ID="{AE2B2CC3-735F-4BC6-9240-C3CE37725E7D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Poison" ID="{7480AF74-4E7D-4F14-83AC-63BFA6B3B88F}" ShortID="833927103">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Poison" ID="{E4D2E5D5-81AE-4ECC-A510-625BBBDA8951}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Poison.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="297634695"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Poison" ID="{E4D2E5D5-81AE-4ECC-A510-625BBBDA8951}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Resurrection" ID="{40CCB43B-16D2-417E-ADFA-858E2188A526}" ShortID="576085309">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Resurrection" ID="{027C0C4B-700D-4623-A26D-8DE1FA535E8A}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Resurrection.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="531837225"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Resurrection" ID="{027C0C4B-700D-4623-A26D-8DE1FA535E8A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Rock Magic" ID="{8188995E-4C53-4815-A695-B3C387C94C35}" ShortID="589238280">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Rock Magic" ID="{A05B536D-0EE5-4524-A229-DF85A5A97339}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Rock Magic.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="374535002"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Rock Magic" ID="{A05B536D-0EE5-4524-A229-DF85A5A97339}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Sleep" ID="{DC4FF8B8-FBF3-4D5D-8C11-C9A3CF7C7B00}" ShortID="468010538">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Sleep" ID="{94846369-0434-4C06-85B3-97B5858B238F}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Sleep.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="404131909"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Sleep" ID="{94846369-0434-4C06-85B3-97B5858B238F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Spell Casting 1" ID="{E7F94F0E-7D84-4FAD-BB3A-DAA4F05BC3AD}" ShortID="286501119">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Spell Casting 1" ID="{D845AA65-1894-4443-9A24-00758B606DDE}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Spell Casting 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="613354256"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Spell Casting 1" ID="{D845AA65-1894-4443-9A24-00758B606DDE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Spell Casting 2" ID="{B52DFD63-DE07-44EE-A450-0FFCD97FA55F}" ShortID="234150386">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Spell Casting 2" ID="{F6762190-C794-4402-A13A-F0C49305CE12}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Spell Casting 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="3785641"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Spell Casting 2" ID="{F6762190-C794-4402-A13A-F0C49305CE12}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Water Magic" ID="{145E54F7-6264-4588-99A2-23E07947B612}" ShortID="570102698">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Water Magic" ID="{20752042-137C-4280-9423-F2298662682B}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Water Magic.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1064521147"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Water Magic" ID="{20752042-137C-4280-9423-F2298662682B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Wind Magic" ID="{519F7682-3029-4923-875E-3870AED64BAF}" ShortID="731757639">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Wind Magic" ID="{D1DF077D-1284-4537-86BE-798C3F0FB678}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\Magic SFX\Wind Magic.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1047659355"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Wind Magic" ID="{D1DF077D-1284-4537-86BE-798C3F0FB678}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="UI SFX" ID="{5E7E944A-BF8F-4B41-A294-552C64BFA522}" ShortID="508616386">
+							<ChildrenList>
+								<Sound Name="Buy Items" ID="{7D9B8FD2-2D95-460E-B266-8A41D33C7227}" ShortID="218355537">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Buy Items" ID="{F555ED2F-006A-40E7-B5BF-ECA375ACBDBC}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\UI SFX\Buy Items.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="191493986"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Buy Items" ID="{F555ED2F-006A-40E7-B5BF-ECA375ACBDBC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Delete File" ID="{CA88C810-C82D-40A5-8EE7-BDD6CDD9D8FC}" ShortID="441324610">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Delete File" ID="{490FC669-EBAC-4511-9CA0-697E8ED66C82}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\UI SFX\Delete File.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="8261847"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Delete File" ID="{490FC669-EBAC-4511-9CA0-697E8ED66C82}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Drop Item" ID="{D2E01D76-D47D-44D7-A7CC-9B36BECCA650}" ShortID="270422442">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Drop Item" ID="{EDAB5D14-25B7-4582-A294-0D659F862203}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\UI SFX\Drop Item.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="752813400"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Drop Item" ID="{EDAB5D14-25B7-4582-A294-0D659F862203}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Equip Item" ID="{F324EDE6-B9F8-4D6A-9035-BBDF54A971A8}" ShortID="888456525">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Equip Item" ID="{32AEEC81-48CD-422D-A30C-1A8E5EAFF7EE}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\UI SFX\Equip Item.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="922502373"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Equip Item" ID="{32AEEC81-48CD-422D-A30C-1A8E5EAFF7EE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Save" ID="{9A662C9B-2A74-4C3A-A32A-BABD197A16BE}" ShortID="402775896">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Save" ID="{D5020073-A0D1-49C0-B372-9B51F694DAF2}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\UI SFX\Save.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="98406659"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Save" ID="{D5020073-A0D1-49C0-B372-9B51F694DAF2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Select menù voice" ID="{B8065A03-03C4-4EA9-B946-D331AB3EFA1E}" ShortID="39495026">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Select menù voice" ID="{6C01F8FC-C230-487A-8D4A-923CD13FC2C4}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\UI SFX\Select menù voice.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="755456462"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Select menù voice" ID="{6C01F8FC-C230-487A-8D4A-923CD13FC2C4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Sell Item" ID="{E9B873B9-AD85-4096-A140-5D199C8A2EF4}" ShortID="543425352">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Sell Item" ID="{DBEF1D5D-9691-4BB8-B125-526163E2345E}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\UI SFX\Sell Item.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1025892529"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Sell Item" ID="{DBEF1D5D-9691-4BB8-B125-526163E2345E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Use Item" ID="{3629AE77-5507-463D-957D-68B517DCF441}" ShortID="689535663">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{24C1928B-65FC-4A6B-B791-EF6B3FB047D1}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{EF9B4CF2-F9D7-43C6-B7B2-78A7662CE61C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Use Item" ID="{BFEA9256-7B23-4955-BA8D-135E34D56EE9}">
+											<Language>SFX</Language>
+											<AudioFile>General RPG SFX Pack\UI SFX\Use Item.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="504020401"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Use Item" ID="{BFEA9256-7B23-4955-BA8D-135E34D56EE9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

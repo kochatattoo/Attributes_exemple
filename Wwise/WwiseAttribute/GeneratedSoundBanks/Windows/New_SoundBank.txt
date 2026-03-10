@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3050945240	New_Event			\Default Work Unit\New_Event	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	755456462	Select menù voice	D:\UnityPetProject\Attributes_exemple\Wwise\WwiseAttribute\.cache\72\{72802101-17A7-7EE6-BFE3-7B1B392481FB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\General RPG SFX Pack\UI SFX\Select menù voice		194912
+

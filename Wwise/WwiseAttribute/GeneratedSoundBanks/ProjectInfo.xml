@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="WwiseAttribute" GUID="{936E3AE4-07A0-423F-87CF-78FA6F2DF18F}" Generator="2024.1.11.9010"/>
+	<CacheRoot>../.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="Windows" GUID="{5AF4AB3E-22F0-428B-BAA7-5B2DF4586A51}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="Windows"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{C364A40F-515A-4C15-B4EF-CC5410E2556D}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{42263F27-5B33-A4DC-18C5-5634627D0D35}</FileHash>
+</ProjectInfo>
